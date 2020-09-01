@@ -319,12 +319,8 @@ namespace DurableTask.AzureStorage.Partitioning
                     await this.appLeaseContainer.DeleteIfExistsAsync();
                 }
             }
-            catch (StorageException ex)
-            { 
-                if (ex.RequestInformation.HttpStatusCode != 404)
-                {
-                    throw;
-                }
+            catch (StorageException)
+            {
             }
             finally
             {
